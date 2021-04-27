@@ -9,7 +9,7 @@
  */
 
   // Added staff CPT
-function tm_register_custom_post_types() {
+function sl_register_custom_post_types() {
     $labels = array(
         'name'               => _x( 'Staff', 'post type general name' ),
         'singular_name'      => _x( 'Staff', 'post type singular name'),
@@ -57,7 +57,7 @@ function tm_register_custom_post_types() {
     );
     register_post_type( 'sl-staff', $args );
 }
-add_action( 'init', 'tm_register_custom_post_types' );
+add_action( 'init', 'sl_register_custom_post_types' );
 
 
 
@@ -73,3 +73,39 @@ function wpb_change_title_text( $title ){
 }
  
 add_filter( 'enter_title_here', 'wpb_change_title_text' );
+
+//add Custom taxonomy for staff's different location
+function sl_register_taxonomies(){
+
+    // Add Staff Category taxonomy
+    $labels = array(
+        'name'              => _x( 'Staff Categories', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Staff Category', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search Staff Categories' ),
+        'all_items'         => __( 'All Staff Category' ),
+        'parent_item'       => __( 'Parent Staff Category' ),
+        'parent_item_colon' => __( 'Parent Staff Category:' ),
+        'edit_item'         => __( 'Edit Staff Category' ),
+        'view_item'         => __( 'View Staff Category' ),
+        'update_item'       => __( 'Update Staff Category' ),
+        'add_new_item'      => __( 'Add New Staff Category' ),
+        'new_item_name'     => __( 'New Staff Category Name' ),
+        'menu_name'         => __( 'Staff Category' ),
+    );
+
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_in_menu'      => true,
+        'show_in_nav_menu'  => true,
+        'show_in_rest'      => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'staff-categories' ),
+    );
+
+    register_taxonomy( 'sl-staff-categories', array( 'sl-staff' ), $args );
+}
+
+add_action( 'init', 'sl_register_taxonomies');
