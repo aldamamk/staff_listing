@@ -58,3 +58,18 @@ function tm_register_custom_post_types() {
     register_post_type( 'sl-staff', $args );
 }
 add_action( 'init', 'tm_register_custom_post_types' );
+
+
+
+//replace staff title's placeholder to 'enter name here'
+function wpb_change_title_text( $title ){
+    $screen = get_current_screen();
+ 
+    if  ( 'sl-staff' == $screen->post_type ) {
+         $title = 'Enter staff name here';
+    }
+ 
+    return $title;
+}
+ 
+add_filter( 'enter_title_here', 'wpb_change_title_text' );
