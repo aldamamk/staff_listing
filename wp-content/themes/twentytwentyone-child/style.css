@@ -1,0 +1,16 @@
+/*
+Theme Name: Twenty Twenty-One Child
+Theme URI: https://wordpress.org/themes/twentytwentyone/
+Author: krizzel Aldama
+Author URI: https://krizzelaldama.com/
+Description: Twenty Twenty-One Child Theme
+Template: twentytwentyone
+Requires at least: 5.3
+Tested up to: 5.7
+Requires PHP: 5.6
+Version: 1.0.0
+*/
+
+main{
+    background-color: wheat;
+}
