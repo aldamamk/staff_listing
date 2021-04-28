@@ -15,7 +15,6 @@ get_header();
     </section>
     
     <div class="flex">
-
         <?php
             $taxonomy = 'sl-staff-categories';
             $terms = get_terms(
@@ -40,9 +39,8 @@ get_header();
                     if ( $term_query->have_posts() ) : ?>
 
                         <section class="staff-section">
-                            <a href="<?php echo get_term_link($term) ?>">
-                                <h2><?php echo $term->name; ?></h2>
-                            </a>
+                            <h2><a href="<?php echo get_term_link($term) ?>">
+                                        <?php echo $term->name; ?> </a></h2>
                         </section>
                 
                         <?php wp_reset_postdata();
