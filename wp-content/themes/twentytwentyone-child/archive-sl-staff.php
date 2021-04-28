@@ -37,7 +37,7 @@ get_header();
                         ),
                     );
                     $term_query = new WP_Query( $term_args );
-                if ( $term_query->have_posts() ) : ?>
+                    if ( $term_query->have_posts() ) : ?>
 
                         <section class="staff-section">
                             <a href="<?php echo get_term_link($term) ?>">
@@ -48,8 +48,7 @@ get_header();
                         <?php wp_reset_postdata();
                     endif;
                 endforeach;
-            endif;
-        ?>
+            endif; ?>
      </div>
 <?php
 get_footer();
