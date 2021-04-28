@@ -16,9 +16,12 @@ if ( have_posts() ) : ?>
 
     <section class="home-container"> 
 
-        <div class="home-banner"> <?php the_post_thumbnail(); ?> </div>
-        <h1> <?php the_title(); ?> </h1>
-        <p> <?php the_content(); ?> </p>
+        <div class="home-banner section"> <?php the_post_thumbnail(); ?> </div>
+        <div class="home-text-content">
+            <h1 id="h1"> <?php the_title(); ?> </h1>
+            <?php the_content(); ?> 
+        </div>
+        
         
     </section>
     

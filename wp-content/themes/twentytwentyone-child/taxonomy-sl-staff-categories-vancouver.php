@@ -22,18 +22,19 @@ get_header();
                 <?php while(have_posts() ) :
                     the_post() ?>
 
-                    <article class="staff-single-card">
-
+                <article class="staff-single-card">
                     <?php  the_post_thumbnail(); ?>
-
+                    
+                    <div class="card-text-content">
                         <h2> <?php the_title(); ?> </h2>
-                            <p> <?php    
-                                $position = get_field('position');
-                                if($position) : 
-                                echo $position; 
-                                endif; ?> 
-                            </p>
-                    </article>
+                        <p> <?php    
+                            $position = get_field('position');
+                            if($position) : 
+                            echo $position; 
+                            endif; ?> 
+                        </p>
+                    </div>
+                </article>
 
                     <?php
                         endwhile; 
