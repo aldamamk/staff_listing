@@ -20,3 +20,9 @@ function iconic_disable_reviews() {
     remove_post_type_support( 'product', 'comments' );
 }
 add_action( 'init', 'iconic_disable_reviews' );
+
+//add Google fonts 'Lora'
+function google_fonts() {
+    wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap', false );
+}
+add_action( 'wp_enqueue_scripts', 'google_fonts' );
