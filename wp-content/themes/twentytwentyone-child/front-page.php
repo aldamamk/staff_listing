@@ -12,10 +12,17 @@
 get_header();
 
 /* Start the Loop */
-while ( have_posts() ) :
-	the_post();
-	get_template_part( 'template-parts/content/content-page' );
+if ( have_posts() ) : ?>
 
-endwhile; // End of the loop.
+    <section class="home-container"> 
+
+        <div class="home-banner"> <?php the_post_thumbnail(); ?> </div>
+        <h1> <?php the_title(); ?> </h1>
+        <p> <?php the_content(); ?> </p>
+        
+    </section>
+    
+<?php
+endif; //Endif.
 
 get_footer();
